@@ -36,6 +36,7 @@ class IndexController extends Zend_Controller_Action {
 	}
 	
 	public function listAction() {
+		zend_monitor_set_aggregation_hint(rand());
 		$month = $this->getRequest ()->getParam ( "month" );
 		if (! $month) {
 			$month = date ( "m" );
