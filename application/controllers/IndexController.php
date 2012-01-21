@@ -34,7 +34,7 @@ class IndexController extends Zend_Controller_Action {
 		$data = array(
 				'date'      => date(),
 				'type' => 'shift',
-				'comment'      => ''
+				'comments'      => ''
 		);
 		$table = new Shifts($this->db);
 		$insert = $table->insert($data);
