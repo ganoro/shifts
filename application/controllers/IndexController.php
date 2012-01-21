@@ -22,10 +22,11 @@ class IndexController extends Zend_Controller_Action
 			'dbname'   => getDbName()
 		);
     	$db = Zend_Db::factory('PDO_MYSQL', $options);
-		$table = new Shifts(array('db' => $db));
-		$select = $table->fetchAll();
+		$db->select()->from("shifts");
+		$stmt = $db->query($select);
+		$result = $stmt->fetchAll();
 		
-		var_dump($select);
+		var_dump($result);
 		die(1);		
     }
 }
