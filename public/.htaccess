@@ -1,4 +1,6 @@
 Options +FollowSymlinks
+RewriteBase /shifts
+
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} -s [OR]

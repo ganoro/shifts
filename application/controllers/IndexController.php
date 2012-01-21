@@ -15,20 +15,30 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
+
+    }
+    
+    public function listAction()
+    {
+    	$month = $this->getRequest()->getParam("month");
+    	if (!$month) {
+    		$month = date("m");
+    	}
+    	
     	$options = array(
 			'host'     => getDbHost(),
 			'username' => getDbUser(),
 			'password' => getDbPassword(),
 			'dbname'   => getDbName()
 		);
-    	$db = Zend_Db::factory('PDO_MYSQL', $options);
-		$select = $db->select()->from("shifts");
+    	$db = Zend_Db::factory('PDO_MYSQL', $options); 
+		$select = $db->select()->from("shifts")->where("MONTH(date) = $month");
 		$stmt = $db->query($select);
 		$result = $stmt->fetchAll();
-		
-		var_dump($result);
-		die(1);		
+		echo json_encode($result);
+		die(0);
     }
+    
 }
 
 /**
