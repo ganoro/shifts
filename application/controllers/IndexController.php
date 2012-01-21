@@ -23,7 +23,8 @@ class IndexController extends Zend_Controller_Action
 		);
     	$db = Zend_Db::factory('PDO_MYSQL', $options);
 		$table = new Shifts(array('db' => $db));
-		$select = $table->select();
+		$select = $table->fetchAll();
+		
 		var_dump($select);
 		die(1);		
     }
