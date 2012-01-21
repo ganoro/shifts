@@ -40,8 +40,8 @@ class IndexController extends Zend_Controller_Action {
 		try {
 			$insert = $table->insert($data);
 		} catch (Exception $e) {
-			die(0);
 		}
+		die(0);
 	}
 	
 	public function reportsessionAction() {
@@ -54,8 +54,8 @@ class IndexController extends Zend_Controller_Action {
 		try {
 			$insert = $table->insert($data);
 		} catch (Exception $e) {
-			die(0);
 		}
+		die(0);
 	}
 	
 	public function removeAction() {
@@ -66,8 +66,8 @@ class IndexController extends Zend_Controller_Action {
 		try {
 			$insert = $table->delete($data);
 		} catch (Exception $e) {
-			die(0);
 		}
+		die(0);
 	}
 	
 	public function listAction() {
