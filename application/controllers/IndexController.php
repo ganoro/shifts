@@ -6,9 +6,13 @@ class Shifts extends Zend_Db_Table_Abstract {
 
 class IndexController extends Zend_Controller_Action {
 	
+	protected $options;
+	protected $db;
+	
+	
 	public function init() {
-		$options = array ('host' => getDbHost (), 'username' => getDbUser (), 'password' => getDbPassword (), 'dbname' => getDbName () );
-		$db = Zend_Db::factory ( 'PDO_MYSQL', $options );
+		$this->options = array ('host' => getDbHost (), 'username' => getDbUser (), 'password' => getDbPassword (), 'dbname' => getDbName () );
+		$this->db = Zend_Db::factory ( 'PDO_MYSQL', $options );
 	}
 	
 	public function indexAction() {
