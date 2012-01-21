@@ -31,11 +31,11 @@
 	</div>
 	
 	<div data-role="content">	
-		<ul>
-			<li><a href="#" data-inline="true" data-role="button" data-icon="arrow-l">Previous Month</a></li>
-			<li><a href="#" data-inline="true">Month: <?= $this->month ?></a></li>
-			<li><a href="#" data-inline="true" data-role="button" data-icon="arrow-r">Next Month</a></li>
-		</ul>
+		<div class="ui-grid-b">
+			<div class="ui-block-a"><a href="#" data-inline="true" data-role="button" data-icon="arrow-l">Previous Month</a></div>
+			<div class="ui-block-b"><a href="#" data-inline="true">Month: <?= $this->month ?></a></div>
+			<div class="ui-block-c"><a href="#" data-inline="true" data-role="button" data-icon="arrow-r">Next Month</a></div>
+		</div><!-- /grid-b -->	
 	</div><!-- /content -->
 
 	<div data-role="content">	
