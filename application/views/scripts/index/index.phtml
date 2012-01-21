@@ -12,7 +12,7 @@
 		$.getJSON('index/list', function(data) {
 			  var items = [];
 			  $.each(data, function(key, val) {
-			    items.push('<li><a href="index.html">test</a></li>');
+			    items.push('<li><a href="index.html">' + key + value + '</a></li>');
 			  });
   			  $("#mainList").append(items.join(''));
 			  $('#mainList').listview('refresh');
