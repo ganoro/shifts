@@ -11,12 +11,16 @@ class IndexController extends Zend_Controller_Action {
 	
 	
 	public function init() {
+		zend_monitor_set_aggregation_hint(rand());
 		$this->options = array ('host' => getDbHost (), 'username' => getDbUser (), 'password' => getDbPassword (), 'dbname' => getDbName () );
 		$this->db = Zend_Db::factory ( 'PDO_MYSQL', $this->options );
 	}
 	
 	public function indexAction() {
-	
+		$month = $this->getRequest ()->getParam ( "month" );
+		if (! $month) {
+			$month = date ( "m" );
+		}
 	}
 	
 	public function reportshiftAction() {
@@ -36,7 +40,7 @@ class IndexController extends Zend_Controller_Action {
 	}
 	
 	public function listAction() {
-		zend_monitor_set_aggregation_hint(rand());
+
 		$month = $this->getRequest ()->getParam ( "month" );
 		if (! $month) {
 			$month = date ( "m" );
