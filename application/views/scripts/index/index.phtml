@@ -9,11 +9,18 @@
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		$("#mainList").append('<li><a href="index.html">Acura</a></li>');
-		$('#mainList').listview('refresh');
+		$.getJSON('index/list', function(data) {
+			  var items = [];
+			  $.each(data, function(key, val) {
+			    items.push('<li><a href="index.html">test</a></li>');
+			  });
+  			  $("#mainList").append(items.join(''));
+			  $('#mainList').listview('refresh');
+			});
+	
+
 		
 	});
-
 	</script>
 	
 </head> 
@@ -28,12 +35,12 @@
 	
 	<div data-role="content">	
 		<a href="#" data-role="button" data-inline="true" data-icon="arrow-l" data-theme="a">Previous Month</a>
+		Month: <?= $month ?>
 		<a href="#" data-role="button" data-inline="true" data-icon="arrow-r" data-theme="a">Next Month</a>
 	</div><!-- /content -->
 
 	<div data-role="content">	
 		<ul id="mainList" data-role="listview" data-theme="b">
-
 		</ul>
 	</div><!-- /content -->
 
