@@ -15,7 +15,7 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-
+			
     }
     
     public function listAction()
@@ -38,7 +38,6 @@ class IndexController extends Zend_Controller_Action
 		echo json_encode($result);
 		die(0);
     }
-    
 }
 
 /**
