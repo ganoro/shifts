@@ -11,20 +11,34 @@ class IndexController extends Zend_Controller_Action {
 	
 	
 	public function init() {
+		// monitore
 		zend_monitor_set_aggregation_hint(rand());
+		
+		// database
 		$this->options = array ('host' => getDbHost (), 'username' => getDbUser (), 'password' => getDbPassword (), 'dbname' => getDbName () );
 		$this->db = Zend_Db::factory ( 'PDO_MYSQL', $this->options );
-	}
-	
-	public function indexAction() {
-		$this->view->month = $this->getRequest ()->getParam ( "month" );
-		if (! $this->view->month) {
-			$this->view->month = date ( "m" );
+		Zend_Db_Table_Abstract::setDefaultAdapter($this->db);
+		
+		// month setting
+		$this->month = $this->getRequest ()->getParam ( "month" );
+		if (! $this->month) {
+			$this->month = date ( "m" );
 		}
 	}
 	
-	public function reportshiftAction() {
+	public function indexAction() {
+
+	}
 	
+	public function reportshiftAction() {
+		$data = array(
+				'date'      => date(),
+				'type' => 'shift',
+				'comment'      => ''
+		);
+		$table = new Shifts($this->db);
+		$insert = $table->insert($data);
+		die(0);
 	}
 	
 	public function reportsessionAction() {
@@ -40,12 +54,7 @@ class IndexController extends Zend_Controller_Action {
 	}
 	
 	public function listAction() {
-
-		$month = $this->getRequest ()->getParam ( "month" );
-		if (! $month) {
-			$month = date ( "m" );
-		}
-		$select = $this->db->select ()->from ( "shifts" )->where ( "MONTH(date) = $month" );
+		$select = $this->db->select ()->from ( "shifts" )->where ( "MONTH(date) = $this->month" );
 		$stmt = $this->db->query ( $select );
 		$result = $stmt->fetchAll ();
 		echo json_encode ( $result );
