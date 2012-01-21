@@ -37,20 +37,37 @@ class IndexController extends Zend_Controller_Action {
 				'comments'      => ''
 		);
 		$table = new Shifts($this->db);
-		$insert = $table->insert($data);
-		die(0);
+		try {
+			$insert = $table->insert($data);
+		} catch (Exception $e) {
+			die(0);
+		}
 	}
 	
 	public function reportsessionAction() {
-	
+		$data = array(
+				'date'      => date("Y-m-d"),
+				'type' => 'shift',
+				'comments'      => ''
+		);
+		$table = new Shifts($this->db);
+		try {
+			$insert = $table->insert($data);
+		} catch (Exception $e) {
+			die(0);
+		}
 	}
 	
-	public function removeshiftAction() {
-	
-	}
-	
-	public function removesessionAction() {
-	
+	public function removeAction() {
+		$data = array(
+				'date'      => date("Y-m-d"),
+		);
+		$table = new Shifts($this->db);
+		try {
+			$insert = $table->delete($data);
+		} catch (Exception $e) {
+			die(0);
+		}
 	}
 	
 	public function listAction() {
