@@ -12,7 +12,11 @@
 		$.getJSON('index/list', function(data) {
 			  var items = [];
 			  $.each(data, function(key, val) {
-			    items.push('<li data-theme="d"><a href="index.html" >' + val.date + '</a></li>');
+				if (val.type == "sessions") {
+			    	items.push('<li data-theme="a"><a href="index.html" >' + val.date + '</a></li>');
+				} else {
+			    	items.push('<li data-theme="b"><a href="index.html" >' + val.date + '</a></li>');
+				}
 			  });
   			  $("#mainList").append(items.join(''));
 			  $('#mainList').listview('refresh');
