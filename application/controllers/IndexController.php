@@ -12,7 +12,7 @@ class IndexController extends Zend_Controller_Action {
 	
 	public function init() {
 		$this->options = array ('host' => getDbHost (), 'username' => getDbUser (), 'password' => getDbPassword (), 'dbname' => getDbName () );
-		$this->db = Zend_Db::factory ( 'PDO_MYSQL', $options );
+		$this->db = Zend_Db::factory ( 'PDO_MYSQL', $this->options );
 	}
 	
 	public function indexAction() {
