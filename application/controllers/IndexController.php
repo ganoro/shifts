@@ -32,7 +32,7 @@ class IndexController extends Zend_Controller_Action {
 	
 	public function reportshiftAction() {
 		$data = array(
-				'date'      => date(),
+				'date'      => date("Y-m-d"),
 				'type' => 'shift',
 				'comments'      => ''
 		);
