@@ -30,6 +30,10 @@ class IndexController extends Zend_Controller_Action {
 
 	}
 	
+	public function insertAction() {
+
+	}
+	
 	public function reportshiftAction() {
 		$data = array(
 				'date'      => date("Y-m-d"),

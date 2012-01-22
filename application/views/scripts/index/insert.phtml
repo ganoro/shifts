@@ -1,0 +1,98 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>My Page</title> 
+	<meta http-equiv="content-type" content="text/html;charset=windows-1255"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$.getJSON('index/list', function(data) {
+			  var items = [];
+			  $.each(data, function(key, val) {
+				if (val.type != "sessions") { 
+			    	items.push('<li data-theme="b"><a href="index.html" >' + val.date + '</a></li>');
+				} else {
+			    	items.push('<li data-theme="c"><a href="index.html" >' + val.date + '</a></li>');
+				}
+			  });
+  			  $("#mainList").append(items.join(''));
+			  $('#mainList').listview('refresh');
+			});
+	});
+	</script>
+	
+</head> 
+<body> 
+<div data-role="page">
+
+	<div data-role="header" data-position="inline">
+		<a href="/" data-icon="delete">Cancel</a>
+		<h1>Reports</h1>
+	</div>
+	
+	<div data-role="content">	
+		<form action="form.php" method="post">
+			<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+     		<label for="radio-choice-1">Shift</label>
+	     	<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
+	     	<label for="radio-choice-2">Sessions</label>
+		
+			<label for="select-choice-month">Month</label>
+			<select name="select-choice-month" id="select-choice-month">
+				<option>Month</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+			</select>
+			
+			<label for="select-choice-day">Day</label>
+			<select name="select-choice-day" id="select-choice-day">
+				<option>Day</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+			</select>
+			
+			<label for="select-choice-year">Year</label>
+			<select name="select-choice-year" id="select-choice-year">
+				<option>Year</option>
+				<option value="2011">2012</option>
+				<option value="2011">2013</option>
+				<option value="2011">2014</option>
+			</select>		
+		
+			<div data-role="fieldcontain" class="ui-hide-label">
+				<label for="username">Comments:</label>
+				<input type="text" name="comments" id="comments" value="" placeholder="Comments"/>
+			</div>
+		</form>
+		
+		
+	</div><!-- /content -->
+	
+</div><!-- /page -->
+
+</body>
+</html>
+
