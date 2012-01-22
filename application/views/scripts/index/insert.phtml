@@ -9,18 +9,7 @@
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		$.getJSON('index/list', function(data) {
-			  var items = [];
-			  $.each(data, function(key, val) {
-				if (val.type != "sessions") { 
-			    	items.push('<li data-theme="b"><a href="index.html" >' + val.date + '</a></li>');
-				} else {
-			    	items.push('<li data-theme="c"><a href="index.html" >' + val.date + '</a></li>');
-				}
-			  });
-  			  $("#mainList").append(items.join(''));
-			  $('#mainList').listview('refresh');
-			});
+		$('#mainList').listview('refresh');
 	});
 	</script>
 	
@@ -29,7 +18,7 @@
 <div data-role="page">
 
 	<div data-role="header" data-position="inline">
-		<a href="index" data-icon="delete">Cancel</a>
+		<a href="" data-icon="delete">Cancel</a>
 		<h1>Reports</h1>
 	</div>
 	
@@ -41,8 +30,6 @@
 		     	<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
 		     	<label for="radio-choice-2">Sessions</label>
 			</fieldset>
-		
-		
 		
 			<fieldset data-role="controlgroup" data-type="horizontal"> 
 			
