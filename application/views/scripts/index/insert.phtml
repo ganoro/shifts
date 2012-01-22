@@ -10,12 +10,12 @@
 	<script type="text/javascript">
 	$(document).ready(function() {
 		var d = new Date();
-		
-		$('#select-choice-month').options[d.getMonth()].selected=true;
-		$('#select-choice-day').options[d.getDay()].selected=true;
-		$('#select-choice-year').options[d.getYear()].selected=true;
-		
+		$('#select-choice-month').children()[d.getMonth()+1].selected=true;
+		$('#select-choice-day').children()[d.getDate()].selected=true;
+		$('#select-choice-year').children()[d.getFullYear()].selected=true;
 		$('#select-choice-month').selectmenu('refresh');
+		$('#select-choice-day').selectmenu('refresh');
+		$('#select-choice-year').selectmenu('refresh');
 	});
 	</script>
 	
