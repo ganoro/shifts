@@ -17,8 +17,6 @@
 		}
 	}
 
-	
-
 	$(document).ready(function() {
 		var d = new Date();
 		$('#select-choice-month').children()[d.getMonth()+1].selected=true;
@@ -29,12 +27,17 @@
 		$('#select-choice-year').selectmenu('refresh');
 
 		$( "#save-btn" ).bind( "click", function(event, ui) {
+			y = getSelected($('#select-choice-year').children());
+			m = getSelected($('#select-choice-month').children());
+			d = getSelected($('#select-choice-day').children());
+			c = $('#comments').value;
+			
 			if ($("#radio-choice-1").checked == "checked") {
 				// Shift
 				$.ajax({
 					  type: 'POST',
 					  url: 'index/reportshift',
-					  data: { 'month': $('#select-choice-month').children(), 'day' : $('#select-choice-day').children() , 'year' : $('#select-choice-year').children() },
+					  data: { 'm': m, 'd' : d , 'y' : y, 'c' : c },
 					  success: function() { alert ("ok"); }  ,
 					});
 			} else {
@@ -42,7 +45,7 @@
 				$.ajax({
 					  type: 'POST',
 					  url: 'index/reportsession',
-					  data: { 'month': $('#select-choice-month').children(), 'day' : $('#select-choice-day').children() , 'year' : $('#select-choice-year').children() },
+					  data: { 'm': m, 'd' : d , 'y' : y, 'c' : c },
 					  success: function() { alert ("ok"); }  ,
 				});
 			}
