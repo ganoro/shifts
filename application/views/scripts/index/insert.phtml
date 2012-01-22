@@ -16,6 +16,11 @@
 		$('#select-choice-month').selectmenu('refresh');
 		$('#select-choice-day').selectmenu('refresh');
 		$('#select-choice-year').selectmenu('refresh');
+
+		$( "#save-btn" ).bind( "click", function(event, ui) {
+			  alert("dsafdsaf");
+			  $("#event-form" ).submit();
+		});
 	});
 	</script>
 	
@@ -24,19 +29,20 @@
 <div data-role="page">
 
 	<div data-role="header" data-position="inline">
-		<a href="<?= $this->baseUrl("") ?>" data-icon="delete">Cancel</a>
-		<h1>Reports</h1>
+		<a href="/<?= $this->baseUrl("")?>" data-icon="delete">Cancel</a>
+		<h1>Event</h1>
+		<a id="save-btn" href="index.html" data-icon="check" data-theme="b">Save</a>
 	</div>
 	
 	<div data-role="content">	
-		<form action="form.php" method="post">
+		<form id="event-form" action="form.php" method="post">
 			<fieldset data-role="controlgroup" data-type="horizontal" >
 				<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
 	     		<label for="radio-choice-1">Shift</label>
 		     	<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
 		     	<label for="radio-choice-2">Sessions</label>
 			</fieldset>
-		
+			
 			<fieldset data-role="controlgroup" data-type="horizontal"> 
 			
 				<select name="select-choice-month" id="select-choice-month">
