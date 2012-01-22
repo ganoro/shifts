@@ -9,12 +9,15 @@
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
 	<script type="text/javascript">
 	function getSelected(options) {
-		for ( var e in options) {
+		for ( var i = 0; i < options.length; i++) {
+			var e = options[i];
 			if (e.selected) {
 				return e.value;
 			}
 		}
 	}
+
+	
 
 	$(document).ready(function() {
 		var d = new Date();
