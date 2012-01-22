@@ -19,9 +19,21 @@
 
 		$( "#save-btn" ).bind( "click", function(event, ui) {
 			if ($("#radio-choice-1").checked == "checked") {
-				
+				// Shift
+				$.ajax({
+					  type: 'POST',
+					  url: 'index/reportshift',
+					  data: { 'month': $('#select-choice-month').children(), 'day' : $('#select-choice-day').children() , 'year' : $('#select-choice-year').children() },
+					  success: function() { alert ("ok"); }  ,
+					});
 			} else {
-				
+				// Sessions
+				$.ajax({
+					  type: 'POST',
+					  url: 'index/reportsession',
+					  data: { 'month': $('#select-choice-month').children(), 'day' : $('#select-choice-day').children() , 'year' : $('#select-choice-year').children() },
+					  success: function() { alert ("ok"); }  ,
+				});
 			}
 		});
 	});
