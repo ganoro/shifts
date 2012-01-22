@@ -35,10 +35,13 @@
 	
 	<div data-role="content">	
 		<form action="form.php" method="post">
-			<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
-     		<label for="radio-choice-1">Shift</label>
-	     	<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
-	     	<label for="radio-choice-2">Sessions</label>
+			<fieldset data-role="controlgroup" data-type="horizontal" >
+				<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+	     		<label for="radio-choice-1">Shift</label>
+		     	<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
+		     	<label for="radio-choice-2">Sessions</label>
+			</fieldset>
+		
 		
 		
 			<fieldset data-role="controlgroup" data-type="horizontal"> 
