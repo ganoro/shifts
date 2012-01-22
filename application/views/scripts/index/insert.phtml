@@ -9,7 +9,13 @@
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		$('#mainList').listview('refresh');
+		var d = new Date();
+		
+		$('#select-choice-month').options[d.getMonth()].selected=true;
+		$('#select-choice-day').options[d.getDay()].selected=true;
+		$('#select-choice-year').options[d.getYear()].selected=true;
+		
+		$('#select-choice-month').selectmenu('refresh');
 	});
 	</script>
 	
@@ -51,7 +57,7 @@
 				
 				<select name="select-choice-day" id="select-choice-day">
 					<option>Day</option>
-					<option value="1" selected="selected">1</option>
+					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
 					<option value="4">4</option>
@@ -86,7 +92,7 @@
 				
 				<select name="select-choice-year" id="select-choice-year">
 					<option>Year</option>
-					<option value="2012" selected="selected">2012</option>
+					<option value="2012">2012</option>
 					<option value="2013">2013</option>
 					<option value="2014">2014</option>
 				</select>
