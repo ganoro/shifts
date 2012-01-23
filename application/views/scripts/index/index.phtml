@@ -40,7 +40,7 @@
 		<div class="ui-grid-b">
 			<div class="ui-block-a"></div>
 			<div class="ui-block-b"><?= $this->month ?></div>
-			<div class="ui-block-c"><a href="index/insert" data-role="button" data-icon="plus">Report</a></div>
+			<div class="ui-block-c"><a href="<?= $this->url(array('controller'=>'index', 'action' => 'insert'))?>" data-role="button" data-icon="plus">Report</a></div>
 		</div><!-- /grid-b -->	
 	</div><!-- /content -->
 
