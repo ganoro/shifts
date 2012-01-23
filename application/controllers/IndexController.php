@@ -31,28 +31,28 @@ class IndexController extends Zend_Controller_Action {
 	}
 	
 	public function insertAction() {
-
 	}
 	
 	public function reportshiftAction() {
-		$data = array(
-				'date'      => date("Y-m-d"),
-				'type' => 'shift',
-				'comments'      => ''
-		);
-		$table = new Shifts($this->db);
-		try {
-			$insert = $table->insert($data);
-		} catch (Exception $e) {
-		}
-		die(0);
+		$this->addRecord("shift");
 	}
 	
 	public function reportsessionAction() {
+		$this->addRecord ("session");
+
+	}
+	/**
+	 */
+	private function addRecord($type) {
+		$y = $this->getRequest()->getParam("y");
+		$m = $this->getRequest()->getParam("m");
+		$d = $this->getRequest()->getParam("d");
+		$c = $this->getRequest()->getParam("c");
+		
 		$data = array(
-				'date'      => date("Y-m-d"),
-				'type' => 'shift',
-				'comments'      => ''
+				'date' => $y . '-' . $m . '-' , $d,
+				'type' => $type,
+				'comments' => $c
 		);
 		$table = new Shifts($this->db);
 		try {
@@ -61,10 +61,15 @@ class IndexController extends Zend_Controller_Action {
 		}
 		die(0);
 	}
+
 	
 	public function removeAction() {
+		$y = $this->getRequest()->getParam("y");
+		$m = $this->getRequest()->getParam("m");
+		$d = $this->getRequest()->getParam("d");
+		
 		$data = array(
-				'date'      => date("Y-m-d"),
+				'date' => $y . '-' . $m . '-' , $d,
 		);
 		$table = new Shifts($this->db);
 		try {
