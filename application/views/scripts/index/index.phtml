@@ -9,11 +9,6 @@
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		$(document).bind("mobileinit", function(){
-			  $.mobile.ajaxEnabled = false;
-		});
-	
-
 		$.getJSON('index/list', function(data) {
 			  var items = [];
 			  
@@ -45,7 +40,7 @@
 		<div class="ui-grid-b">
 			<div class="ui-block-a"></div>
 			<div class="ui-block-b"><?= $this->month ?></div>
-			<div class="ui-block-c"><a href="<?= $this->url(array('controller'=>'index', 'action' => 'insert'))?>" data-role="button" data-icon="plus">Report</a></div>
+			<div class="ui-block-c"><a href="<?= $this->url(array('controller'=>'index', 'action' => 'insert'))?>/" data-role="button" data-icon="plus" rel="external">Report</a></div>
 		</div><!-- /grid-b -->	
 	</div><!-- /content -->
 
