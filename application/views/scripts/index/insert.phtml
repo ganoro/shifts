@@ -18,6 +18,11 @@
 	}
 
 	$(document).ready(function() {
+
+		$(document).bind("mobileinit", function(){
+			  $.mobile.ajaxEnabled = false;
+		});
+		
 		var d = new Date();
 		$('#select-choice-month').children()[d.getMonth()+1].selected=true;
 		$('#select-choice-day').children()[d.getDate()].selected=true;
