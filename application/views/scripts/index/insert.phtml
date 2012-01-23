@@ -59,9 +59,9 @@
 <div data-role="page">
 
 	<div data-role="header" data-position="inline">
-		<a href="<?= $this->url() ?>" data-icon="delete">Cancel</a>
+		<a href="<?= $this->url(array('controller'=>'index', 'action' => 'index'))?>" data-icon="delete">Cancel</a>
 		<h1>Event</h1>
-		<a href="<?= $this->url() ?>" id="save-btn" data-icon="check" data-theme="b">Save</a>
+		<a href="<?= $this->url(array('controller'=>'index', 'action' => 'index'))?> ?>" id="save-btn" data-icon="check" data-theme="b">Save</a>
 	</div>
 	
 	<div data-role="content">	
