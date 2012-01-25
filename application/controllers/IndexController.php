@@ -50,7 +50,7 @@ class IndexController extends Zend_Controller_Action {
 		$c = $this->getRequest()->getParam("c");
 		
 		$data = array(
-				'date' => $y . '-' . $m . '-' , $d,
+				'date' => $y . '-' . $m . '-' . $d,
 				'type' => $type,
 				'comments' => $c
 		);
@@ -70,7 +70,7 @@ class IndexController extends Zend_Controller_Action {
 		$d = $this->getRequest()->getParam("d");
 		
 		$data = array(
-				'date' => $y . '-' . $m . '-' , $d,
+				'date' => $y . '-' . $m . '-' . $d,
 		);
 		$table = new Shifts($this->db);
 		try {
