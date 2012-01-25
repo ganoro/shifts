@@ -41,7 +41,7 @@
 				// Shift
 				$.ajax({
 					  type: 'POST',
-					  url: 'index/reportshift',
+					  url: '<?= $this->url(array('controller'=>'index', 'action' => 'reportshift'))?>',
 					  data: { 'm': m, 'd' : d , 'y' : y, 'c' : c },
 					  success: function(m) { 
 						  alert (m);
@@ -56,7 +56,7 @@
 				// Sessions
 				$.ajax({
 					  type: 'POST',
-					  url: 'index/reportsession',
+					  url: '<?= $this->url(array('controller'=>'index', 'action' => 'reportsession'))?>',
 					  data: { 'm': m, 'd' : d , 'y' : y, 'c' : c },
 					  success: function(m) { 
 					  }  ,
