@@ -45,7 +45,11 @@
 					  data: { 'm': m, 'd' : d , 'y' : y, 'c' : c },
 					  success: function($m) { 
 						  alert ("ok"); 
-					  }  ,
+					  },
+					  error: function(jqXHR, textStatus, errorThrown) {
+						  alert ("ok"); 
+					  }
+					  
 					});
 			} else {
 				// Sessions
@@ -56,6 +60,9 @@
 					  success: function($m) { 
 						  alert ("ok"); 
 					  }  ,
+					  error: function(jqXHR, textStatus, errorThrown) {
+						  alert ("ok"); 
+					  }
 				});
 			}
 			return true;
