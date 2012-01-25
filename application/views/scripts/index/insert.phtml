@@ -43,9 +43,12 @@
 					  type: 'POST',
 					  url: 'index/reportshift',
 					  data: { 'm': m, 'd' : d , 'y' : y, 'c' : c },
-					  success: function($m) { 
+					  success: function(m) { 
+						  alert (m);
 					  },
 					  error: function(jqXHR, textStatus, errorThrown) {
+						  alert (textStatus);
+						  
 					  }
 					  
 					});
@@ -55,7 +58,7 @@
 					  type: 'POST',
 					  url: 'index/reportsession',
 					  data: { 'm': m, 'd' : d , 'y' : y, 'c' : c },
-					  success: function($m) { 
+					  success: function(m) { 
 					  }  ,
 					  error: function(jqXHR, textStatus, errorThrown) {
 					  }
