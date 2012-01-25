@@ -43,7 +43,7 @@
 					  type: 'POST',
 					  url: 'index/reportshift',
 					  data: { 'm': m, 'd' : d , 'y' : y, 'c' : c },
-					  success: function() { alert ("ok"); }  ,
+					  success: function($m) { alert ("ok"); }  ,
 					});
 			} else {
 				// Sessions
@@ -51,7 +51,7 @@
 					  type: 'POST',
 					  url: 'index/reportsession',
 					  data: { 'm': m, 'd' : d , 'y' : y, 'c' : c },
-					  success: function() { alert ("ok"); }  ,
+					  success: function($m) { alert ("ok"); }  ,
 				});
 			}
 			return true;
