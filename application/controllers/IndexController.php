@@ -55,11 +55,7 @@ class IndexController extends Zend_Controller_Action {
 				'comments' => $c
 		);
 		$table = new Shifts($this->db);
-		try {
-			$insert = $table->insert($data);
-		} catch (Exception $e) {
-			throw $e;
-		}
+		$insert = $table->insert($data);
 		die(0);
 	}
 
