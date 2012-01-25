@@ -58,6 +58,7 @@ class IndexController extends Zend_Controller_Action {
 		try {
 			$insert = $table->insert($data);
 		} catch (Exception $e) {
+			throw $e;
 		}
 		die(0);
 	}
