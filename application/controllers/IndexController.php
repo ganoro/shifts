@@ -54,6 +54,9 @@ class IndexController extends Zend_Controller_Action {
 				'type' => $type,
 				'comments' => $c
 		);
+		var_dump($data);
+		die(0);
+		
 		$table = new Shifts($this->db);
 		$insert = $table->insert($data);
 		echo $insert;
