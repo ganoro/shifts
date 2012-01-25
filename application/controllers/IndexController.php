@@ -56,6 +56,7 @@ class IndexController extends Zend_Controller_Action {
 		);
 		$table = new Shifts($this->db);
 		$insert = $table->insert($data);
+		echo $insert;
 		die(0);
 	}
 
