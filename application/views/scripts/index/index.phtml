@@ -19,16 +19,14 @@
 <div data-role="page">
 
 	<div data-role="header" data-position="inline">
-		<h1>Reports</h1>
 		<a href="index/" data-icon="arrow-l" class="ui-btn-left">Previous Month</a>
 		<a href="index/" data-icon="arrow-r" data-iconpos="right" class="ui-btn-right">Next Month</a>
 	</div>
 	
 	<div data-role="content">	
-		<div class="ui-grid-b">
+		<div class="ui-grid-a">
 			<div class="ui-block-a"></div>
-			<div class="ui-block-b"><?= $this->month ?></div>
-			<div class="ui-block-c"><a href="<?= $this->url(array('controller'=>'index', 'action' => 'insert'))?>/" data-role="button" data-icon="plus" rel="external">Report</a></div>
+			<div class="ui-block-b"><a href="<?= $this->url(array('controller'=>'index', 'action' => 'insert'))?>/" data-role="button" data-icon="plus" rel="external">Report</a></div>
 		</div><!-- /grid-b -->	
 	</div><!-- /content -->
 
