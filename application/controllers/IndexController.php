@@ -20,11 +20,13 @@ class IndexController extends Zend_Controller_Action {
 		Zend_Db_Table_Abstract::setDefaultAdapter($this->db);
 		
 		// month setting
-		$this->month = $this->getRequest()->getParam ( "month" );
+		$this->month = $this->getRequest()->getParam ( "m" );
 		if (!$this->month) {
 			$this->month = date ( "m" );
+			$this->year = date ( "Y" );
 		}
 		$this->view->month = $this->month;
+		$this->view->year = $this->year;
 	}
 	
 	public function indexAction() {
@@ -79,7 +81,7 @@ class IndexController extends Zend_Controller_Action {
 	}
 	
 	public function listAction() {
-		$select = $this->db->select ()->from ( "shifts" )->where ( "MONTH(date) = $this->month" );
+		$select = $this->db->select ()->from ( "shifts" )->where ( "MONTH(date) = $this->month" )->where ( "YEAR(date) = $this->year" );
 		$stmt = $this->db->query ( $select );
 		$result = $stmt->fetchAll ();
 		echo json_encode ( $result );

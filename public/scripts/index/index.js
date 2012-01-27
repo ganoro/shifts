@@ -3,7 +3,7 @@ $(document)
 				function() {
 					$
 							.getJSON(
-									require.toUrl('index/list/month/.').slice(0, -1) + $("#month").html(),
+									require.toUrl('index/list/.').slice(0, -1) + "m/" + $("#month").html() + "/y/" + $("#year").html(),
 									function(data) {
 										var items = [];
 										$
