@@ -37,7 +37,7 @@ $(document)
 									// Shift
 									$.ajax({
 										type : 'POST',
-										url: 'index/reportshift',
+										url: require.baseUrl + 'index/reportshift',
 										data : {
 											'm' : m,
 											'd' : d,
@@ -57,7 +57,7 @@ $(document)
 									// Sessions
 									$.ajax({
 										type : 'POST',
-										url: 'index/reportsession',
+										url: require.baseUrl + '/index/reportsession',
 										data : {
 											'm' : m,
 											'd' : d,
