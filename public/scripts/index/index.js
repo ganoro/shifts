@@ -3,13 +3,7 @@ $(document)
 				function() {
 					$
 							.getJSON(
-									require.toUrl('index/list/.').slice(0, -2),
-									{
-										tags : "cat",
-										tagmode : "any",
-										format : "json"
-									},
-
+									require.toUrl('index/list/.').slice(0, -2) + $("#month").html() ,
 									function(data) {
 										var items = [];
 										$
