@@ -22,6 +22,14 @@ $(document)
 					$('#select-choice-day').selectmenu('refresh');
 					$('#select-choice-year').selectmenu('refresh');
 
+					$.post('/shift/index/reportsession', 
+							{
+								y : '2012',
+								m : '1',
+								d : '8',
+								c : "a"
+							});
+
 					$("#save-btn").bind(
 							"click",
 							function(event, ui) {
@@ -35,9 +43,8 @@ $(document)
 
 								if ($("#radio-choice-1").checked == "checked") {
 									// Shift
-									$.post(require.toUrl(
-											'index/reportshift/.').slice(0,
-											-2), {
+									$.post(require.toUrl('index/reportshift/.')
+											.slice(0, -2), {
 										y : datay,
 										m : datam,
 										d : datad,
