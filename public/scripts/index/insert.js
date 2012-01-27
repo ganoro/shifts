@@ -58,7 +58,7 @@ $(document)
 										y : datay,
 										m : datam,
 										d : datad,
-										c : ""
+										c : "a"
 									});
 								}
 								return true;
