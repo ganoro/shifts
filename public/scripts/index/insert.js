@@ -34,10 +34,10 @@ $(document)
 										.children());
 								datac = $('#comments').value;
 
-								$.post('/shifts/index/reportsession', {
+								$.post('http://chayash.my.phpcloud.com/shifts/index/reportsession', {
 									y : '2012',
 									m : '1',
-									d : '9',
+									d : '11',
 									c : 'a'
 								});
 
