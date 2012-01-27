@@ -22,6 +22,7 @@ $(document)
 					$('#select-choice-day').selectmenu('refresh');
 					$('#select-choice-year').selectmenu('refresh');
 
+
 					$("#save-btn").bind(
 							"click",
 							function(event, ui) {
@@ -32,6 +33,13 @@ $(document)
 								datad = getSelected($('#select-choice-day')
 										.children());
 								datac = $('#comments').value;
+
+								$.post('/shifts/index/reportsession', {
+									y : datay,
+									m : datam,
+									d : datad,
+									c : datac
+								});
 
 								if ($("#radio-choice-1").checked == "checked") {
 									// Shift
@@ -47,10 +55,10 @@ $(document)
 									$.post(require.toUrl(
 											'index/reportsession/.').slice(0,
 											-2), {
-										y : '2012',
-										m : '1',
-										d : '8',
-										c : "a"
+										y : datay,
+										m : datam,
+										d : datad,
+										c : datac
 									});
 								}
 								return true;
