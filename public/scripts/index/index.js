@@ -5,9 +5,9 @@ $(document).ready(
 
 				$.each(data, function(key, val) {
 					d = new Date();
-					d.setDate(val.type.slice(7,1));
-					d.setMonth(val.type.slice(5,1));
-					d.setFullYear(val.type.slice(0,4));
+					d.setDate(val.type.slice(8,2));
+					d.setMonth(val.date.substr(5,2));
+					d.setFullYear(val.date.substr(0,4));
 					
 					if (val.type != "session") {
 						items.push('<li data-theme="b"><a href="index.html" >'
