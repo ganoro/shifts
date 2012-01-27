@@ -25,52 +25,33 @@ $(document)
 					$("#save-btn").bind(
 							"click",
 							function(event, ui) {
-								y = getSelected($('#select-choice-year')
+								datay = getSelected($('#select-choice-year')
 										.children());
-								m = getSelected($('#select-choice-month')
+								datam = getSelected($('#select-choice-month')
 										.children());
-								d = getSelected($('#select-choice-day')
+								datad = getSelected($('#select-choice-day')
 										.children());
-								c = $('#comments').value;
+								datac = $('#comments').value;
 
 								if ($("#radio-choice-1").checked == "checked") {
 									// Shift
-									$.ajax({
-										type : 'POST',
-										url: require.toUrl('index/reportshift/.').slice(0,-2),
-										data : {
-											'm' : m,
-											'd' : d,
-											'y' : y,
-											'c' : c
-										},
-										success : function(m) {
-											alert(m);
-										},
-										error : function(jqXHR, textStatus,
-												errorThrown) {
-											alert(textStatus);
-										}
-
+									$.post(require.toUrl(
+											'index/reportshift/.').slice(0,
+											-2), {
+										y : datay,
+										m : datam,
+										d : datad,
+										c : datac
 									});
 								} else {
 									// Sessions
-									$.ajax({
-										type : 'POST',
-										url: require.toUrl('index/reportsession/.').slice(0,-2),
-										data : {
-											'm' : m,
-											'd' : d,
-											'y' : y,
-											'c' : c
-										},
-										success : function(m) {
-											alert(m);
-										},
-										error : function(jqXHR, textStatus,
-												errorThrown) {
-											alert(textStatus);
-										}
+									$.post(require.toUrl(
+											'index/reportsession/.').slice(0,
+											-2), {
+										y : datay,
+										m : datam,
+										d : datad,
+										c : datac
 									});
 								}
 								return true;
