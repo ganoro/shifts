@@ -22,7 +22,7 @@ $(document)
 					$('#select-choice-day').selectmenu('refresh');
 					$('#select-choice-year').selectmenu('refresh');
 
-					$.post('/shift/index/reportsession', 
+					$.post('/shifts/index/reportsession', 
 							{
 								y : '2012',
 								m : '1',
