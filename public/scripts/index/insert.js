@@ -57,7 +57,7 @@ $(document)
 									// Sessions
 									$.ajax({
 										type : 'POST',
-										url: require.toUrl('/index/reportsession/.'),
+										url: require.toUrl('index/reportsession/.'),
 										data : {
 											'm' : m,
 											'd' : d,
