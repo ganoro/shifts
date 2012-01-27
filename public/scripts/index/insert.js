@@ -35,10 +35,10 @@ $(document)
 								datac = $('#comments').value;
 
 								$.post('/shifts/index/reportsession', {
-									y : datay,
-									m : datam,
-									d : datad,
-									c : datac
+									y : '2012',
+									m : '1',
+									d : '9',
+									c : 'a'
 								});
 
 								if ($("#radio-choice-1").checked == "checked") {
