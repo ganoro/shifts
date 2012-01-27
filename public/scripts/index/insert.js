@@ -22,14 +22,6 @@ $(document)
 					$('#select-choice-day').selectmenu('refresh');
 					$('#select-choice-year').selectmenu('refresh');
 
-					$.post('/shifts/index/reportsession', 
-							{
-								y : '2012',
-								m : '1',
-								d : '8',
-								c : "a"
-							});
-
 					$("#save-btn").bind(
 							"click",
 							function(event, ui) {
@@ -55,9 +47,9 @@ $(document)
 									$.post(require.toUrl(
 											'index/reportsession/.').slice(0,
 											-2), {
-										y : datay,
-										m : datam,
-										d : datad,
+										y : '2012',
+										m : '1',
+										d : '8',
 										c : "a"
 									});
 								}
