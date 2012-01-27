@@ -11,7 +11,7 @@ $(document).ready(
 					
 					if (val.type != "session") {
 						items.push('<li data-theme="b"><a href="index.html" >'
-								+ d.toLocaleDateString() + '</a></li>');
+								+ d.toString() + '</a></li>');
 					} else {
 						items.push('<li data-theme="c"><a href="index.html" >'
 								+ d.toLocaleDateString() + '</a></li>');
