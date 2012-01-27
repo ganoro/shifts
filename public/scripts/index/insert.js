@@ -22,7 +22,6 @@ $(document)
 					$('#select-choice-day').selectmenu('refresh');
 					$('#select-choice-year').selectmenu('refresh');
 
-
 					$("#save-btn").bind(
 							"click",
 							function(event, ui) {
@@ -34,32 +33,47 @@ $(document)
 										.children());
 								datac = $('#comments').value;
 
-								$.post('http://chayash.my.phpcloud.com/shifts/index/reportsession', {
-									y : datay,
-									m : datam,
-									d : datad,
-									c : datac
-								});
-
 								if ($("#radio-choice-1").checked == "checked") {
 									// Shift
-									$.post(require.toUrl('index/reportshift/.')
-											.slice(0, -2), {
-										y : datay,
-										m : datam,
-										d : datad,
-										c : datac
-									});
+									alert($.ajax({
+										url : require.toUrl(
+												'index/reportshift/.').slice(0,
+												-2),
+										type : "POST",
+										data : ({
+											y : datay,
+											m : datam,
+											d : datad,
+											c : datac
+										}),
+										success : function(msg) {
+											alert(msg);
+										},
+										error : function(jxhr, m, c) {
+											alert(jxhr);
+										}
+
+									}).responseText);
 								} else {
-									// Sessions
-									$.post(require.toUrl(
-											'index/reportsession/.').slice(0,
-											-2), {
-										y : datay,
-										m : datam,
-										d : datad,
-										c : datac
-									});
+									alert($.ajax({
+										url : require.toUrl(
+												'index/reportsession/.').slice(
+												0, -2),
+										type : "POST",
+										data : ({
+											y : datay,
+											m : datam,
+											d : datad,
+											c : datac
+										}),
+										success : function(msg) {
+											alert(msg);
+										},
+										error : function(jxhr, m, c) {
+											alert(jxhr);
+										}
+
+									}).responseText);
 								}
 								return true;
 							});
