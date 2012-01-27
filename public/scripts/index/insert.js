@@ -65,9 +65,11 @@ $(document)
 											'c' : c
 										},
 										success : function(m) {
+											alert(m);
 										},
 										error : function(jqXHR, textStatus,
 												errorThrown) {
+											alert(textStatus);
 										}
 									});
 								}
