@@ -5,7 +5,7 @@ $(document).ready(
 
 				$.each(data, function(key, val) {
 					d = new Date(Date.parse(val.date));
-					if (val.type != "sessions") {
+					if (val.type != "session") {
 						items.push('<li data-theme="b"><a href="index.html" >'
 								+ d.toLocaleDateString() + '</a></li>');
 					} else {
