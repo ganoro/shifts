@@ -21,9 +21,9 @@
 	<div data-role="header" data-position="inline">
 		<?php $m = (int) $this->month; ?>
 		<?php $y = (int) $this->year; ?>
-		<a href="<?= $this->url(array('controller'=>'index', 'action' => 'index', "m" => ($m == 1 ? 12 : $m - 1), "y" => ($m == 1 ? $y - 1 : $y)))?>" data-icon="arrow-l" class="ui-btn-left">Previous Month</a>
+		<a href="<?= $this->url(array('controller'=>'index', 'action' => 'index', "m" => ($m == 1 ? 12 : $m - 1), "y" => ($m == 1 ? $y - 1 : $y)))?>" data-icon="arrow-l" class="ui-btn-left" rel="external">Previous Month</a>
 		<h2><span id="month"><?= $m ?></span>/<span id="year"><?= $y ?></span></h2>
-		<a href="<?= $this->url(array('controller'=>'index', 'action' => 'index', "m" => ($m == 12 ? 1 : $m + 1), "y" => ($m == 12 ? $y + 1 : $y)))?>" data-icon="arrow-r" data-iconpos="right" class="ui-btn-right">Next Month</a>
+		<a href="<?= $this->url(array('controller'=>'index', 'action' => 'index', "m" => ($m == 12 ? 1 : $m + 1), "y" => ($m == 12 ? $y + 1 : $y)))?>" data-icon="arrow-r" data-iconpos="right" class="ui-btn-right" rel="external">Next Month</a>
 	</div>
 	
 	<div data-role="content">	
