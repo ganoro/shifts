@@ -33,7 +33,7 @@ $(document)
 										.children());
 								datac = $('#comments').value;
 
-								if ($("#radio-choice-1")[0].checked) {
+								if ($("#radio-choice-1")[0].checked == true) {
 									// Shift
 									$.ajax({
 										url : require.toUrl(
