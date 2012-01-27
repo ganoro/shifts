@@ -35,7 +35,7 @@ $(document)
 
 								if ($("#radio-choice-1").checked == "checked") {
 									// Shift
-									alert($.ajax({
+									$.ajax({
 										url : require.toUrl(
 												'index/reportshift/.').slice(0,
 												-2),
@@ -47,15 +47,15 @@ $(document)
 											c : datac
 										}),
 										success : function(msg) {
-											alert(msg);
+											// alert(msg);
 										},
 										error : function(jxhr, m, c) {
-											alert(jxhr);
+											// alert(jxhr);
 										}
 
-									}).responseText);
+									});
 								} else {
-									alert($.ajax({
+									$.ajax({
 										url : require.toUrl(
 												'index/reportsession/.').slice(
 												0, -2),
@@ -67,13 +67,13 @@ $(document)
 											c : datac
 										}),
 										success : function(msg) {
-											alert(msg);
+											// alert(msg);
 										},
 										error : function(jxhr, m, c) {
-											alert(jxhr);
+											// alert(jxhr);
 										}
 
-									}).responseText);
+									});
 								}
 								return true;
 							});
