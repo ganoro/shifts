@@ -20,8 +20,8 @@ class IndexController extends Zend_Controller_Action {
 		Zend_Db_Table_Abstract::setDefaultAdapter($this->db);
 		
 		// month setting
-		$this->month = $this->getRequest ()->getParam ( "month" );
-		if (! $this->month) {
+		$this->month = $this->getRequest()->getParam ( "month" );
+		if (!$this->month) {
 			$this->month = date ( "m" );
 		}
 	}
