@@ -4,17 +4,14 @@ $(document).ready(
 				var items = [];
 
 				$.each(data, function(key, val) {
-					d = new Date();
-					d.setDate(val.date.substr(8,2));
-					d.setMonth(val.date.substr(5,2));
-					d.setFullYear(val.date.substr(0,4));
+					d = new moment([val.date.substr(0,4), val.date.substr(5,2), val.date.substr(8,2)]);
 					
 					if (val.type != "session") {
 						items.push('<li data-theme="b"><a href="index.html" >'
-								+ d.toString() + '</a></li>');
+								+ d.format('dddd, MMMM Do YYYY') + '</a></li>');
 					} else {
 						items.push('<li data-theme="c"><a href="index.html" >'
-								+ d.toLocaleDateString() + '</a></li>');
+								+ d.format('dddd, MMMM Do YYYY') + '</a></li>');
 					}
 				});
 				$("#mainList").append(items.join(''));
