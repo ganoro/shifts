@@ -21,7 +21,7 @@ class IndexController extends Zend_Controller_Action {
 		
 		// month setting
 		$this->month = $this->getRequest()->getParam ( "m" );
-		$this->month = $this->getRequest()->getParam ( "y" );
+		$this->year = $this->getRequest()->getParam ( "y" );
 		if (!$this->month) {
 			$this->month = date ( "m" );
 			$this->year = date ( "Y" );
