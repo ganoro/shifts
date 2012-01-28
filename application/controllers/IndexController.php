@@ -31,10 +31,12 @@ class IndexController extends Zend_Controller_Action {
 	}
 	
 	public function indexAction() {
-
 	}
 	
 	public function insertAction() {
+	}
+	
+	public function updateAction() {
 	}
 	
 	public function reportshiftAction() {
