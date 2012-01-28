@@ -21,7 +21,7 @@ $(document).ready(
 			var infoUrl = require.toUrl('index/info/.').slice(0, -1) + "d/"
 					+ datad + "/m/" + datam + "/y/" + datay;
 			$.getJSON(infoUrl, function(data) {
-				if (data.comments != 'null') {
+				if (data[0].comments != null) {
 					$('#comments').value = data.comments;
 				}
 			});
