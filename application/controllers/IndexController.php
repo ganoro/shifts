@@ -90,6 +90,18 @@ class IndexController extends Zend_Controller_Action {
 		echo json_encode ( $result );
 		die ( 0 );
 	}
+	
+	public function infoAction() {
+		$y = $this->getRequest()->getParam("y");
+		$m = $this->getRequest()->getParam("m");
+		$d = $this->getRequest()->getParam("d");
+		
+		$select = $this->db->select ()->from ( "shifts" )->where ( "date = $y-$m-$d" );
+		$stmt = $this->db->query ( $select );
+		$result = $stmt->fetch();
+		echo json_encode ( $result );
+		die ( 0 );
+	}
 }
 
 /**
