@@ -46,7 +46,7 @@ $(document)
 											d : datad,
 											c : datac
 										}),
-										async:false,
+										async : false,
 										success : function(msg) {
 											// alert(msg);
 										},
@@ -67,7 +67,7 @@ $(document)
 											d : datad,
 											c : datac
 										}),
-										async:false,										
+										async : false,
 										success : function(msg) {
 											// alert(msg);
 										},
