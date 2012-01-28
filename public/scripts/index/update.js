@@ -14,9 +14,9 @@ $(document).ready(
 			});
 
 			var url = $.url(); // parse the current page URL
-			datad = url.segment(2);
-			datam = url.segment(4);
-			datay = url.segment(6);
+			datad = url.segment(5);
+			datam = url.segment(7);
+			datay = url.segment(9);
 
 			var infoUrl = require.toUrl('index/info/.').slice(0, -1) + "d/"
 					+ datad + "/m/" + datam + "/y/" + datay;
