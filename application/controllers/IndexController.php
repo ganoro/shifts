@@ -96,9 +96,12 @@ class IndexController extends Zend_Controller_Action {
 		$m = $this->getRequest()->getParam("m");
 		$d = $this->getRequest()->getParam("d");
 		
+		echo "date = $y-$m-$d";
+		die(0);
+		
 		$select = $this->db->select ()->from ( "shifts" )->where ( "date = $y-$m-$d" );
 		$stmt = $this->db->query ( $select );
-		$result = $stmt->fetch();
+		$result = $stmt->fetchAll();
 		echo json_encode ( $result );
 		die ( 0 );
 	}
