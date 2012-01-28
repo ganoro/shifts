@@ -22,7 +22,7 @@ $(document).ready(
 					+ datad + "/m/" + datam + "/y/" + datay;
 			$.getJSON(infoUrl, function(data) {
 				if (data[0].comments != null) {
-					$('#comments').value = data.comments;
+					$('#comments')[0].value = data[0].comments;
 				}
 			});
 

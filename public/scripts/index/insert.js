@@ -31,7 +31,7 @@ $(document)
 										.children());
 								datad = getSelected($('#select-choice-day')
 										.children());
-								datac = $('#comments').value;
+								datac = $('#comments')[0].value;
 
 								if ($("#radio-choice-1")[0].checked == true) {
 									// Shift
