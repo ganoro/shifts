@@ -21,7 +21,9 @@ $(document).ready(
 			var infoUrl = require.toUrl('index/info/.').slice(0, -1) + "d/"
 					+ datad + "/m/" + datam + "/y/" + datay;
 			$.getJSON(infoUrl, function(data) {
-				$('#comments').value = data.comments;
+				if (data.comments != 'null') {
+					$('#comments').value = data.comments;
+				}
 			});
 
 			$("#delete-btn").bind("click", function(event, ui) {
