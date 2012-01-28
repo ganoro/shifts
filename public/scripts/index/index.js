@@ -3,7 +3,9 @@ $(document)
 				function() {
 					$
 							.getJSON(
-									require.toUrl('index/list/.').slice(0, -1) + "m/" + $("#month").html() + "/y/" + $("#year").html(),
+									require.toUrl('index/list/.').slice(0, -1)
+											+ "m/" + $("#month").html() + "/y/"
+											+ $("#year").html(),
 									function(data) {
 										var items = [];
 										$
@@ -16,14 +18,18 @@ $(document)
 																					.substr(
 																							0,
 																							4),
-																			val.date
-																					.substr(
-																							5,
-																							2),
-																			val.date
-																					.substr(
-																							8,
-																							2) ]);
+																			-1
+																					+ 1
+																					* val.date
+																							.substr(
+																									5,
+																									2),
+																			-1
+																					+ 1
+																					* val.date
+																							.substr(
+																									8,
+																									2) ]);
 
 															if (val.type != "session") {
 																items
