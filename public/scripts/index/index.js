@@ -16,7 +16,7 @@ $(document).ready(
 
 					items.push('<li data-theme="'
 							+ (val.type != "session" ? 'b' : 'c')
-							+ '"><a href="' + updateURL + '" rel="external" >'
+							+ '"><a href="' + updateURL + '" rel="external" data-ajax="false" >'
 							+ d.format('dddd, MMMM Do YYYY') + '</a></li>');
 				});
 				$("#mainList").append(items.join(''));
