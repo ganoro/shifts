@@ -67,7 +67,7 @@ class IndexController extends Zend_Controller_Action {
 	}
 
 	
-	public function removeAction() {
+	public function deleteAction() {
 		$y = $this->getRequest()->getParam("y");
 		$m = $this->getRequest()->getParam("m");
 		$d = $this->getRequest()->getParam("d");

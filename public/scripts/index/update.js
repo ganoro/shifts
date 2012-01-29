@@ -28,7 +28,7 @@ $(document).ready(
 
 			$("#delete-btn").bind("click", function(event, ui) {
 				$.ajax({
-					url : require.toUrl('index/deletereport/.').slice(0, -2),
+					url : require.toUrl('index/delete/.').slice(0, -2),
 					type : "POST",
 					data : ({
 						y : datay,
