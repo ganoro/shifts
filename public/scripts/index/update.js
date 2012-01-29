@@ -46,7 +46,7 @@ $(document).ready(
 			});
 
 			$("#save-btn").bind("click", function(event, ui) {
-				datac = $('#comments').value;
+				datac = $('#comments')[0].value;
 
 				$.ajax({
 					url : require.toUrl('index/edit/.').slice(0, -2),
