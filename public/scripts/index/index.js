@@ -49,5 +49,14 @@ $(document).ready(
 				return true;
 			});
 			
+			$("#login-btn").bind("click", function(event, ui) {
+				FB.login(null, {scope:'email'});
+				return false;
+			});
+			
+			$("#logout-btn").bind("click", function(event, ui) {
+				FB.logout();
+				return false;
+			});
 			
 		});

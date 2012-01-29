@@ -1,5 +1,5 @@
 Options +FollowSymlinks
-RewriteBase /shifts
+RewriteBase /beta-shifts
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} -s [OR]
