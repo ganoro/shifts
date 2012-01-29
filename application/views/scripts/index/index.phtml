@@ -12,9 +12,9 @@
 	  require.config({
 	    baseUrl: "<?= $this->baseUrl() ?>",
 	  });
-	  require( ["scripts/index/index", "scripts/moment"]);
+	  require( ["scripts/index/index", "scripts/moment", "scripts/libs/base64.js", "scripts/libs/sprintf.js", "scripts/jspdf.js"]);
 	</script>
-</head> 
+</head>
 <body> 
 <div data-role="page">
 
@@ -28,7 +28,7 @@
 	
 	<div data-role="content">	
 		<div class="ui-grid-a">
-			<div class="ui-block-a"></div>
+			<div class="ui-block-a"><a href="<?= $this->url(array('controller'=>'index', 'action' => 'index'))?>/" id="share-btn" data-role="button" data-icon="alert">Share</a></div>
 			<div class="ui-block-b"><a href="<?= $this->url(array('controller'=>'index', 'action' => 'insert'))?>/" data-role="button" data-icon="plus" rel="external">Report</a></div>
 		</div><!-- /grid-a -->	
 	</div><!-- /content -->

@@ -26,4 +26,28 @@ $(document).ready(
 				$("#mainList").append(items.join(''));
 				$('#mainList').listview('refresh');
 			});
+			
+			$("#share-btn").bind("click", function(event, ui) {
+				
+				$.getJSON(require.toUrl('index/list/.').slice(0, -1) + "m/"
+						+ $("#month").html() + "/y/" + $("#year").html(), function(
+						data) {
+
+					var doc = new jsPDF();
+					doc.text(20, 20, 'My Schedule!');
+					var i = 30;
+					$.each(data, function(key, val) {
+						var d = moment(val.date, [ "YYYY-MM-DD" ]);
+						doc.text(20, i, d.format('dddd, MMMM Do YYYY') + " " + val.type + " " + val.comments);
+						i += 10;
+					});
+										
+					// Output as Data URI
+					doc.output('datauri');
+				});
+				
+				return true;
+			});
+			
+			
 		});
