@@ -72,12 +72,12 @@ class IndexController extends Zend_Controller_Action {
 		$m = $this->getRequest()->getParam("m");
 		$d = $this->getRequest()->getParam("d");
 		
-		$data = array(
-				'date' => "'" . $y . '-' . $m . '-' . $d . "'",
-		);
+
+		
 		$table = new Shifts($this->db);
 		try {
-			$insert = $table->delete($data);
+			$where = $table->getAdapter()->quoteInto('date = ?', $y . '-' . $m . '-' . $d);
+			$table->delete($where);
 		} catch (Exception $e) {
 		}
 		die(0);
