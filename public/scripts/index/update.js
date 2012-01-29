@@ -49,7 +49,7 @@ $(document).ready(
 				datac = $('#comments').value;
 
 				$.ajax({
-					url : require.toUrl('index/updatereport/.').slice(0, -2),
+					url : require.toUrl('index/edit/.').slice(0, -2),
 					type : "POST",
 					data : ({
 						y : datay,
