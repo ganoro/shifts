@@ -44,6 +44,7 @@ $(document)
 											y : datay,
 											m : datam,
 											d : datad,
+											u : uid,
 											c : datac
 										}),
 										async : false,
@@ -65,6 +66,7 @@ $(document)
 											y : datay,
 											m : datam,
 											d : datad,
+											u : uid,
 											c : datac
 										}),
 										async : false,
@@ -80,3 +82,43 @@ $(document)
 								return true;
 							});
 				});
+
+// Load the SDK Asynchronously
+(function() {
+	var e = document.createElement('script');
+	e.async = true;
+	e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+	document.getElementById('fb-root').appendChild(e);
+}());
+
+window.fbAsyncInit = function() {
+	var url = $.url();
+	FB.init({
+		appId : '329484390424505',
+		channelUrl : url.attr('protocol') + '://' + url.attr('host')
+				+ require.toUrl("channel.php"),
+		status : true,
+		cookie : true,
+		xfbml : true,
+		oauth : true
+	});
+
+	FB.getLoginStatus(function(response) {
+		if (response.status === 'connected') {
+			uid = response.authResponse.userID;
+			accessToken = response.authResponse.accessToken;
+		} else if (response.status === 'not_authorized') {
+			alert("not auth");
+			// the user is logged in to Facebook,
+			// but not connected to the app
+		} else {
+			alert("not logged");
+			FB.login(function(response) {
+				alert(response);
+			}, {
+				scope : 'email'
+			});
+			// the user isn't even logged in to Facebook.
+		}
+	});
+};

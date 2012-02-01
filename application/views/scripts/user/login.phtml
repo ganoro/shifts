@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<head> 
+	<title>My Page</title> 
+	<meta http-equiv="content-type" content="text/html;charset=windows-1255"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+	<script type="text/javascript" src="<?= $this->baseUrl() ?>/scripts/require.js"></script>
+	<script type="text/javascript">
+	  require.config({
+	    baseUrl: "<?= $this->baseUrl() ?>",
+	  });
+	  require( ["scripts/url", "scripts/user/login"]);
+	</script>
+	
+</head>
+<body> 
+<div id="fb-root"></div>
+<div data-role="page">
+
+	<div data-role="header" data-position="inline">
+		<h2>Login</h2>
+	</div>
+	
+	<div data-role="content">	
+		<div class="ui-grid-a">
+			Please connect to your Facebook account first:<br/>
+			<fb:login-button show-faces="true" width="300" max-rows="2"></fb:login-button>
+		</div><!-- /grid-a -->	
+	</div><!-- /content -->
+
+</div><!-- /page -->
+</body>
+</html>
+

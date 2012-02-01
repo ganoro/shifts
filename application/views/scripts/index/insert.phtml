@@ -1,6 +1,6 @@
 <!DOCTYPE html> 
 <html> 
-<head> 
+<html xmlns:fb="http://ogp.me/ns/fb#">
 	<title>My Page</title> 
 	<meta http-equiv="content-type" content="text/html;charset=windows-1255"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -12,11 +12,12 @@
 	  require.config({
 	    baseUrl: "<?= $this->baseUrl() ?>",
 	  });
-	  require( ["scripts/index/insert"]);
+	  require( ["scripts/url", "scripts/index/insert"]);
 	</script>
 	
 </head> 
 <body> 
+<div id="fb-root"></div>
 <div data-role="page">
 
 	<div data-role="header" data-position="inline">
@@ -101,6 +102,7 @@
 			</div>
 		</form>
 		
+		<fb:login-button show-faces="true" width="300" max-rows="2"></fb:login-button>
 		
 	</div><!-- /content -->
 	

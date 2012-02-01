@@ -1,4 +1,5 @@
 <?php
+require_once 'Db/Settings.php';
 
 class Shifts extends Zend_Db_Table_Abstract {
 	protected $_name = 'shifts';
@@ -18,7 +19,6 @@ class IndexController extends Zend_Controller_Action {
 		$this->db = Zend_Db::factory ( 'PDO_MYSQL', $this->options );
 		Zend_Db_Table_Abstract::setDefaultAdapter ( $this->db );
 		
-		// month setting
 		$this->month = $this->getRequest ()->getParam ( "m" );
 		$this->year = $this->getRequest ()->getParam ( "y" );
 		if (! $this->month) {
@@ -52,9 +52,10 @@ class IndexController extends Zend_Controller_Action {
 		$y = $this->getRequest ()->getParam ( "y" );
 		$m = $this->getRequest ()->getParam ( "m" );
 		$d = $this->getRequest ()->getParam ( "d" );
+		$u = $this->getRequest ()->getParam ( "u" );
 		$c = $this->getRequest ()->getParam ( "c" );
 		
-		$data = array ('date' => $y . '-' . $m . '-' . $d, 'type' => $type, 'comments' => $c );
+		$data = array ('date' => $y . '-' . $m . '-' . $d, 'type' => $type, 'comments' => $c, 'user_id' => $u);
 		$table = new Shifts ( $this->db );
 		$insert = $table->insert ( $data );
 		echo $insert;
@@ -92,7 +93,18 @@ class IndexController extends Zend_Controller_Action {
 	}
 	
 	public function listAction() {
-		$select = $this->db->select ()->from ( "shifts" )->where ( "MONTH(date) = $this->month" )->where ( "YEAR(date) = $this->year" );
+		$m = $this->getRequest ()->getParam ( "m" );
+		$y = $this->getRequest ()->getParam ( "y" );
+		$uid = $this->getRequest ()->getParam ( "uid" );
+		if (! $m) {
+			$m = date ( "m" );
+			$y = date ( "Y" );
+		}
+		if (! $uid) {
+			echo json_encode ( array () );
+			die ( 0 );
+		}
+		$select = $this->db->select ()->from ( "shifts" )->where ( "MONTH(date) = $this->month" )->where ( "YEAR(date) = $y" )->where ( "user_id = $uid" );
 		$stmt = $this->db->query ( $select );
 		$result = $stmt->fetchAll ();
 		echo json_encode ( $result );
@@ -112,34 +124,3 @@ class IndexController extends Zend_Controller_Action {
 	}
 }
 
-/**
- *
- * @return string the container db host
- */
-function getDbHost() {
-	return get_cfg_var ( 'zend_developer_cloud.db.host' );
-}
-
-/**
- *
- * @return string the container db name
- */
-function getDbName() {
-	return get_cfg_var ( 'zend_developer_cloud.db.name' );
-}
-
-/**
- *
- * @return string the container db user
- */
-function getDbUser() {
-	return get_cfg_var ( 'zend_developer_cloud.db.username' );
-}
-
-/**
- *
- * @return string the container db password
- */
-function getDbPassword() {
-	return get_cfg_var ( 'zend_developer_cloud.db.password' );
-}

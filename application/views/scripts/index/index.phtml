@@ -12,36 +12,11 @@
 	  require.config({
 	    baseUrl: "<?= $this->baseUrl() ?>",
 	  });
-	  require( ["scripts/libs/base64.js", "scripts/libs/sprintf.js", "scripts/jspdf.js", "scripts/index/index", "scripts/moment"]);
+	  require( ["scripts/moment", "scripts/url", "scripts/libs/base64", "scripts/libs/sprintf", "scripts/jspdf", "scripts/index/index"]);
 	</script>
 </head>
 <body> 
 <div id="fb-root"></div>
-<script>
-  (function() {
-    var e = document.createElement('script'); e.async = true;
-        e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
-        document.getElementById('fb-root').appendChild(e);
-        }());
-
-  window.fbAsyncInit = function() {
-	    FB.init({ appId: '329484390424505', 
-	      status: true, 
-	      cookie: true,
-	      xfbml: true,
-	      oauth: true});
-
-	      FB.Event.subscribe('auth.authResponseChange', handleResponseChange);  
-	    };
-
-    function handleResponseChange(response) {
-    	   document.body.className = response.authResponse ? 'connected' : 'not_connected';
-
-    	   if (response.authResponse) {
-    	     console.log(response);
-    	   }
-	}
-</script>
 
 <div data-role="page">
 
@@ -65,10 +40,11 @@
 		</ul>
 	</div><!-- /content -->
 
-	<div data-role="footer" class="ui-bar">
-		<a href="index.html" data-role="button" id="login-btn" data-icon="plus">Login</a>
-		<a href="index.html" data-role="button" id="logout-btn" data-icon="delete">Logout</a>
-	</div>
+	<div data-role="content">	
+		<fb:login-button show-faces="true" width="300" max-rows="2"></fb:login-button>
+	</div><!-- /content -->
+
+	
 </div><!-- /page -->
 </body>
 </html>
